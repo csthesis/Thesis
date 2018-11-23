@@ -17,7 +17,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".MainSettings" />
@@ -29,9 +29,14 @@
         <activity android:name=".gameCleared" />
         <activity android:name=".gameOver" />
         <activity android:name=".GameScreen" />
-        <activity android:name=".SoundRecog"></activity>
-        <activity android:name=".QuickMath">
+        <activity android:name=".SoundRecog" />
+        <activity android:name=".QuickMath"></activity>
+        <activity android:name=".Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

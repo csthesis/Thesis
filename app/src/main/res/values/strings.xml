@@ -12,4 +12,9 @@
     <string name="exit_game">Exit Game</string>
     <string name="pause">Pause</string>
     <string name="wip">Work In Progress</string>
+    <string name="applogo">APPlogo</string>
+    <string name="olfulogo">OLFUlogo</string>
+    <string name="ccslogo">CCSlogo</string>
+    <string name="olfu">Our Lady of Fatima University</string>
+    <string name="ccs">College of Computer Studies</string>
 </resources>
