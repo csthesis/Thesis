@@ -70,8 +70,8 @@ public class QuickMath extends AppCompatActivity {
                 btn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        popup.setContentView(R.layout.activity_game_cleared);
-                        popup.show();
+//                        popup.setContentView(R.layout.activity_game_cleared);
+//                        popup.show();
 
                         popup.setContentView(R.layout.activity_game_cleared);
                         popup.show();

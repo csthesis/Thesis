@@ -51,7 +51,7 @@ public class TransitionScreen extends AppCompatActivity {
                 deduc = TransitionScreen.weights[ctr] / 2;
                 //assigning value to deduc
                 TransitionScreen.weights[ctr] = deduc;
-                //dividing the deduc value to 4
+                //dividing the deduc value to 5
                 add = deduc / 5;
 
                 for(ctr2 = 0; ctr2 < 6; ctr2++){

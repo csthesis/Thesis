@@ -6,4 +6,8 @@
     <color name="bgColor">#dbaff2</color>
     <color name="textBlack">#111211</color>
     <color name="textWhite">#e4e1ef</color>
+    <color name="textPrimaryDark">#320959</color>
+    <color name="blueFire">#1C2E5F</color>
+    <color name="greenFire">#007740</color>
+    <color name="redFire">#BA202F</color>
 </resources>

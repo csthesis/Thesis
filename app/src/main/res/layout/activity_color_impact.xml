@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".colorImpact"
+    android:clickable="true"
+    >
+
+
+    <TextView
+        android:id="@+id/reflexLabel"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="Color Impact"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/reflexImg"
+        app:layout_constraintStart_toEndOf="@+id/colorImpactPause"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/reflexImg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/reflex" />
+
+    <Button
+        android:id="@+id/colorImpactPause"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pause"
+        android:onClick="pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/reflexLabel"
+        app:layout_constraintTop_toBottomOf="@+id/reflexLabel">
+
+        <ImageView
+            android:id="@+id/blueF"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="112dp"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/player"
+            app:layout_constraintEnd_toEndOf="@+id/player"
+            app:layout_constraintStart_toStartOf="@+id/player"
+            app:layout_constraintTop_toBottomOf="@+id/bar"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/blueshoot" />
+
+        <ImageView
+            android:id="@+id/redF"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="112dp"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/player"
+            app:layout_constraintEnd_toEndOf="@+id/player"
+            app:layout_constraintStart_toStartOf="@+id/player"
+            app:layout_constraintTop_toBottomOf="@+id/bar"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/redshoot" />
+
+        <ImageView
+            android:id="@+id/greenF"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="112dp"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/player"
+            app:layout_constraintEnd_toEndOf="@+id/player"
+            app:layout_constraintStart_toStartOf="@+id/player"
+            app:layout_constraintTop_toBottomOf="@+id/bar"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/greenshoot" />
+
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="fitXY"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/redFire"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/playerimpact" />
+
+        <Button
+            android:id="@+id/redFire"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/redFire"
+            app:layout_constraintBottom_toTopOf="@+id/blueFire"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/blueFire"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/blueFire"
+            app:layout_constraintBottom_toTopOf="@+id/greenFire"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/greenFire"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="4dp"
+            android:background="@color/greenFire"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/bar"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Score"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/scoreText"
+        app:layout_constraintStart_toStartOf="@+id/scoreText"
+        app:layout_constraintTop_toBottomOf="@+id/colorImpactPause" />
+
+    <TextView
+        android:id="@+id/score2"
+        android:layout_width="0dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="4dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Life"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/scoreText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/scoreText"
+        app:layout_constraintTop_toBottomOf="@+id/scoreText" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:gravity="center"
+        android:text="0000"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score" />
+
+    <ImageView
+        android:id="@+id/life1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/score2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score2"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/life2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/score2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/life1"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/life3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/score2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/life2"
+        app:srcCompat="@drawable/heart" />
+</android.support.constraint.ConstraintLayout>

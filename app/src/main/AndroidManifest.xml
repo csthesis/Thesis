@@ -14,11 +14,13 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".MainMenu">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+             <!--<intent-filter> -->
+             <!--<action android:name="android.intent.action.MAIN" /> -->
+
+
+             <!--<category android:name="android.intent.category.DEFAULT" /> -->
+             <!--</intent-filter> -->
         </activity>
         <activity android:name=".MainSettings" />
         <activity android:name=".MainScores" />
@@ -30,10 +32,20 @@
         <activity android:name=".gameOver" />
         <activity android:name=".GameScreen" />
         <activity android:name=".SoundRecog" />
-        <activity android:name=".QuickMath"></activity>
+        <activity android:name=".QuickMath" />
         <activity android:name=".Splash">
+
+             <!--<intent-filter>-->
+             <!--<action android:name="android.intent.action.MAIN" />-->
+
+
+             <!--<category android:name="android.intent.category.LAUNCHER" />-->
+             <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".colorImpact">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

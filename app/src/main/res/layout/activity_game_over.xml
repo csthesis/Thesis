@@ -2,10 +2,38 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="320dp"
-    android:layout_height="450dp"
+    android:layout_width="300dp"
+    android:layout_height="350dp"
     android:layout_gravity="center"
     android:background="@color/colorPrimaryDark"
     tools:context=".gameOver">
 
+    <TextView
+        android:id="@+id/gameOver"
+        android:layout_width="220dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="Game Over"
+        android:textAlignment="center"
+        android:textColor="@color/textWhite"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/mainMenu"
+        android:layout_width="273dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Return to Main Menu"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>
