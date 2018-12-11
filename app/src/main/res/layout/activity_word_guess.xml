@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColor"
+    tools:context=".WordGuess">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/questionGrid4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/colorpairscore2"
+        app:srcCompat="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/scorelabel2"
+        android:layout_width="110dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="Score"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label" />
+
+    <TextView
+        android:id="@+id/colorpairscore2"
+        android:layout_width="102dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="0000"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/scorelabel2"
+        app:layout_constraintStart_toStartOf="@+id/scorelabel2"
+        app:layout_constraintTop_toBottomOf="@+id/scorelabel2" />
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/choiceGrid"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        app:columnCount="5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:rowCount="2">
+
+        <Button
+            android:id="@+id/a1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/a2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/a3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/a4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/a5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/b1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/b2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/b3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/b4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/b5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:fontFamily="@font/aldrich"
+            android:text="A"
+            android:textColor="@color/textBlack"
+            android:textSize="36sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1" />
+
+
+    </android.support.v7.widget.GridLayout>
+
+    <Button
+        android:id="@+id/pause"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="Word Guess"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/categoryimg"
+        app:layout_constraintStart_toEndOf="@+id/pause"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/categoryimg"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/book" />
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/questionGrid4"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:columnCount="4"
+        app:layout_constraintBottom_toTopOf="@+id/choiceGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:rowCount="1">
+
+        <TextView
+            android:id="@+id/q41"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q42"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/a43"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/a44"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+    </android.support.v7.widget.GridLayout>
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/questionGrid5"
+        android:layout_width="0dp"
+        android:layout_height="91dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:columnCount="5"
+        app:layout_constraintBottom_toTopOf="@+id/choiceGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:rowCount="1">
+
+        <TextView
+            android:id="@+id/q1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+    </android.support.v7.widget.GridLayout>
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/questionGrid6"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:columnCount="6"
+        app:layout_constraintBottom_toTopOf="@+id/choiceGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:rowCount="1">
+
+        <TextView
+            android:id="@+id/q61"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q62"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q63"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q64"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q65"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q66"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+    </android.support.v7.widget.GridLayout>
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/questionGrid7"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="visible"
+        app:columnCount="7"
+        app:layout_constraintBottom_toTopOf="@+id/choiceGrid"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img"
+        app:rowCount="1">
+
+        <TextView
+            android:id="@+id/q71"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q72"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q73"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q74"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q75"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q76"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+
+        <TextView
+            android:id="@+id/q77"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/violetMatch"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:textColor="@color/textPrimaryDark"
+            android:textSize="50sp"
+            app:layout_columnWeight="1"
+            app:layout_rowWeight="1"
+            tools:text="A" />
+    </android.support.v7.widget.GridLayout>
+
+
+</android.support.constraint.ConstraintLayout>

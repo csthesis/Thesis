@@ -81,13 +81,43 @@ public class TransitionScreen extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent startIntent = new Intent(getApplicationContext(), ChoiceScreen.class);
-                //passing the chosen category
-                //passing the ctr value
-                startIntent.putExtra("Test_Category", category).putExtra("CTR", finalCtr);
-                startActivity(startIntent);
-                finish();
 
+                Intent startIntent = new Intent();
+
+                switch (finalCtr){
+
+                    case 0:
+                        startIntent = new Intent(getApplicationContext(), SoundRecog.class);
+                        startActivity(startIntent);
+                        finish();
+                        break;
+                    case 1:
+                        startIntent = new Intent(getApplicationContext(), ColorMatch.class);
+                        startActivity(startIntent);
+                        finish();
+                        break;
+                    case 2:
+                        startIntent = new Intent(getApplicationContext(), ColorMatch.class);
+                        startActivity(startIntent);
+                        finish();
+                        break;
+                    case 3:
+                        startIntent = new Intent(getApplicationContext(), QuickMath.class);
+                        startActivity(startIntent);
+                        finish();
+                        break;
+                    case 4:
+                        startIntent = new Intent(getApplicationContext(), ColorPair.class);
+                        startActivity(startIntent);
+                        finish();
+                        break;
+                    case 5:
+                        startIntent = new Intent(getApplicationContext(), colorImpact.class);
+                        startActivity(startIntent);
+                        finish();
+                        break;
+
+                }
 
 
             }

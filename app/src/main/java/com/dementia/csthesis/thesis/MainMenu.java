@@ -28,6 +28,7 @@ public class MainMenu extends AppCompatActivity {
 
                 Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
                 startActivity(startIntent);
+                finish();
 
             }
         });

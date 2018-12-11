@@ -15,19 +15,18 @@
 
         <activity android:name=".MainMenu">
 
-             <!--<intent-filter> -->
-             <!--<action android:name="android.intent.action.MAIN" /> -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <!--<category android:name="android.intent.category.DEFAULT" /> -->
-             <!--</intent-filter> -->
+            <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".MainSettings" />
         <activity android:name=".MainScores" />
         <activity android:name=".MainStats" />
         <activity android:name=".TransitionScreen" />
         <activity android:name=".ChoiceScreen" />
-        <activity android:name=".ingamePause" />
         <activity android:name=".gameCleared" />
         <activity android:name=".gameOver" />
         <activity android:name=".GameScreen" />
@@ -35,17 +34,33 @@
         <activity android:name=".QuickMath" />
         <activity android:name=".Splash">
 
-             <!--<intent-filter>-->
-             <!--<action android:name="android.intent.action.MAIN" />-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
 
-             <!--<category android:name="android.intent.category.LAUNCHER" />-->
-             <!--</intent-filter>-->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
-        <activity android:name=".colorImpact">
+        <activity android:name=".colorImpact" />
+        <activity android:name=".ColorMatch">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity android:name=".ColorPair">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".WordGuess">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

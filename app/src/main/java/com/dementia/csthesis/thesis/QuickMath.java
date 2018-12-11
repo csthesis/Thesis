@@ -67,6 +67,7 @@ public class QuickMath extends AppCompatActivity {
                 btn1.setText(Integer.toString(x));
                 btn2.setText(Integer.toString(dum1));
                 btn3.setText(Integer.toString(dum2));
+
                 btn1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -75,28 +76,8 @@ public class QuickMath extends AppCompatActivity {
 
                         popup.setContentView(R.layout.activity_game_cleared);
                         popup.show();
+                        gameClear();
 
-                        Button next = popup.findViewById(R.id.clearNext);
-                        Button exit = popup.findViewById(R.id.clearExit);
-
-                        next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
-                                startActivity(startIntent);
-
-                            }
-                        });
-                        popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                        exit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
-                                startActivity(startIntent);
-
-                            }
-                        });
                     }
                 });
                 break;
@@ -110,28 +91,7 @@ public class QuickMath extends AppCompatActivity {
                     public void onClick(View v) {
                         popup.setContentView(R.layout.activity_game_cleared);
                         popup.show();
-
-                        Button next = popup.findViewById(R.id.clearNext);
-                        Button exit = popup.findViewById(R.id.clearExit);
-
-                        next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
-                                startActivity(startIntent);
-
-                            }
-                        });
-                        popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                        exit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
-                                startActivity(startIntent);
-
-                            }
-                        });
+                        gameClear();
                     }
                 });
                 break;
@@ -144,28 +104,8 @@ public class QuickMath extends AppCompatActivity {
                     public void onClick(View v) {
                         popup.setContentView(R.layout.activity_game_cleared);
                         popup.show();
+                        gameClear();
 
-                        Button next = popup.findViewById(R.id.clearNext);
-                        Button exit = popup.findViewById(R.id.clearExit);
-
-                        next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
-                                startActivity(startIntent);
-
-                            }
-                        });
-                        popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                        exit.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
-                                startActivity(startIntent);
-
-                            }
-                        });
                     }
                 });
                 break;
@@ -214,5 +154,31 @@ public class QuickMath extends AppCompatActivity {
         });
 
         popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    }
+
+    public void gameClear(){
+        Button next = popup.findViewById(R.id.clearNext);
+        Button exit = popup.findViewById(R.id.clearExit);
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
+                startActivity(startIntent);
+                finish();
+
+            }
+        });
+        popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(startIntent);
+                finish();
+
+            }
+        });
     }
 }

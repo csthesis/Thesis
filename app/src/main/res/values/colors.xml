@@ -7,7 +7,22 @@
     <color name="textBlack">#111211</color>
     <color name="textWhite">#e4e1ef</color>
     <color name="textPrimaryDark">#320959</color>
+
+    //colorImpact
     <color name="blueFire">#1C2E5F</color>
     <color name="greenFire">#007740</color>
     <color name="redFire">#BA202F</color>
+
+    //colorMatch and colorPair
+    <color name="redMatch">#b70f1f</color>
+    <color name="orangeMatch">#e26f2b</color>
+    <color name="yellowMatch">#dcbc1a</color>
+    <color name="greenMatch">#2b7e12</color>
+    <color name="blueMatch">#1345dc</color>
+    <color name="violetMatch">#7550dc</color>
+    //----added for colorPair-----
+    <color name="cyanMatch">#39beb5</color>
+    <color name="brownMatch">#7c604e</color>
+
+
 </resources>

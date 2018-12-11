@@ -11,7 +11,7 @@
 
 
     <TextView
-        android:id="@+id/reflexLabel"
+        android:id="@+id/label"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -23,12 +23,12 @@
         android:textAlignment="center"
         android:textColor="@color/textBlack"
         android:textSize="30sp"
-        app:layout_constraintEnd_toStartOf="@+id/reflexImg"
-        app:layout_constraintStart_toEndOf="@+id/colorImpactPause"
+        app:layout_constraintEnd_toStartOf="@+id/categoryimg"
+        app:layout_constraintStart_toEndOf="@+id/pause"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/reflexImg"
+        android:id="@+id/categoryimg"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/reflex" />
 
     <Button
-        android:id="@+id/colorImpactPause"
+        android:id="@+id/pause"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -55,8 +55,8 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/reflexLabel"
-        app:layout_constraintTop_toBottomOf="@+id/reflexLabel">
+        app:layout_constraintStart_toStartOf="@+id/label"
+        app:layout_constraintTop_toBottomOf="@+id/label">
 
         <ImageView
             android:id="@+id/blueF"
@@ -162,7 +162,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/scorelabel"
         android:layout_width="0dp"
         android:layout_height="22dp"
         android:layout_marginStart="4dp"
@@ -175,7 +175,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/scoreText"
         app:layout_constraintStart_toStartOf="@+id/scoreText"
-        app:layout_constraintTop_toBottomOf="@+id/colorImpactPause" />
+        app:layout_constraintTop_toBottomOf="@+id/pause" />
 
     <TextView
         android:id="@+id/score2"
@@ -208,7 +208,7 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score" />
+        app:layout_constraintTop_toBottomOf="@+id/scorelabel" />
 
     <ImageView
         android:id="@+id/life1"

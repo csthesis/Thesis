@@ -323,8 +323,34 @@ public class colorImpact extends AppCompatActivity {
                 TextView sg = popup.findViewById(R.id.scoreGained);
                 String x = new Integer(score).toString();
                 sg.setText(x);
-
                 contbar = false;
+
+                Button next = popup.findViewById(R.id.clearNext);
+                Button exit = popup.findViewById(R.id.clearExit);
+
+                next.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
+                        startActivity(startIntent);
+                        finish();
+
+                    }
+                });
+                popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                exit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                        startActivity(startIntent);
+                        finish();
+
+                    }
+                });
+
+
+
                 break;
         }
     }
