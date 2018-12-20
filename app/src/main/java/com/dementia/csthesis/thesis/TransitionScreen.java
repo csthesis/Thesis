@@ -1,39 +1,61 @@
 package com.dementia.csthesis.thesis;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class TransitionScreen extends AppCompatActivity {
 
-    public static float[] weights;
+    WeightDatabaseOpenHelper myDb;
+
+    private ArrayList<Float> weights = new ArrayList<Float>();
     public static String[] cat = {"Audio Game", "Visual Game", "Word Game", "Logic Game", "Memory Game", "Reflex Game"};
+
+    private String[] col = {"AUDIO", "VISUAL", "WORD", "LOGIC", "MEMORY", "REFLEX"};
+    private String column;
+
+    private float container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition_screen);
-
+        myDb = new WeightDatabaseOpenHelper(this);
 
         //variable declaration
         int ctr, ctr2, intweightsum;
 
-        float[] initWeights = {20, 20, 20, 20, 20, 20 };
-        weights = initWeights;
-
         float randomweight, fltweightsum, deduc, add, x;
+
+        WeightDatabaseAccess weightDatabaseAccess = WeightDatabaseAccess.getInstance(getApplicationContext());
+        weightDatabaseAccess.open();
+
+        //database loading loop
+        for(ctr = 0; ctr < 6; ctr++){
+            column = col[ctr];
+            weights.add(ctr, weightDatabaseAccess.getWeight(column));
+        }
+
+        weightDatabaseAccess.close();
+
+        for(ctr2 = 0; ctr2 < 6; ctr2++){
+            Log.d("", "initial weights ===================== \t" +col[ctr2]+ "\t" + weights.get(ctr2));
+        }
+
 
         fltweightsum = 0;
         //summation of weights
         for (ctr = 0; ctr < 6; ctr++) {
-            fltweightsum = fltweightsum + weights[ctr];
+            fltweightsum = fltweightsum + weights.get(ctr);
         }
 
         //conversion of float to int
@@ -44,20 +66,24 @@ public class TransitionScreen extends AppCompatActivity {
             //random number generator
             randomweight = rand.nextInt(intweightsum) + 1;
 
-            x = randomweight - weights[ctr];
+            x = randomweight - weights.get(ctr);
 
             if (x <= 0) {
                 //deducting weights to randomed weight
-                deduc = TransitionScreen.weights[ctr] / 2;
+                container = weights.get(ctr);
+                deduc = container / 2;
+
                 //assigning value to deduc
-                TransitionScreen.weights[ctr] = deduc;
+                weights.set(ctr, deduc);
+                container = weights.get(ctr);
+
                 //dividing the deduc value to 5
                 add = deduc / 5;
 
                 for(ctr2 = 0; ctr2 < 6; ctr2++){
                     if(ctr2 != ctr){
                         //adding value to other weights
-                        weights[ctr2] = weights[ctr2] + add;
+                        weights.set(ctr2, (weights.get(ctr2) + add));
                     }
                 }
                 break;
@@ -68,15 +94,34 @@ public class TransitionScreen extends AppCompatActivity {
             }
         }
 
+
+        weightDatabaseAccess.open();
+//        weightDatabaseAccess.deleteWeight();
+//        for(ctr2 = 0; ctr2 < 6; ctr2++){
+//            Log.d("", "deleted weights ===================== " + weights.get(ctr2));
+//        }
+
+        //database insert loop
+        for(ctr2 = 0; ctr2 < 6; ctr2++){
+            column = col[ctr2];
+            weightDatabaseAccess.insertWeight(column, weights.get(ctr2));
+        }
+
+        weightDatabaseAccess.close();
+
+        for(ctr2 = 0; ctr2 < 6; ctr2++){
+            Log.d("", "deducted weights ===================== \t" +col[ctr2]+ "\t"  + weights.get(ctr2));
+        }
+
         //weighted random number generated
 
         final String category = cat[ctr];
         //switch activity and pass the text value of category array
-        TextView tv = (TextView)findViewById(R.id.categLabel);
+        TextView tv = findViewById(R.id.categLabel);
         tv.setText(category);
 
 
-        Button play = (Button)findViewById(R.id.transitionPlay);
+        Button play = findViewById(R.id.transitionPlay);
         final int finalCtr = ctr;
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,7 +142,7 @@ public class TransitionScreen extends AppCompatActivity {
                         finish();
                         break;
                     case 2:
-                        startIntent = new Intent(getApplicationContext(), ColorMatch.class);
+                        startIntent = new Intent(getApplicationContext(), WordGuess.class);
                         startActivity(startIntent);
                         finish();
                         break;
@@ -112,7 +157,7 @@ public class TransitionScreen extends AppCompatActivity {
                         finish();
                         break;
                     case 5:
-                        startIntent = new Intent(getApplicationContext(), colorImpact.class);
+                        startIntent = new Intent(getApplicationContext(), ColorImpact.class);
                         startActivity(startIntent);
                         finish();
                         break;
@@ -123,9 +168,9 @@ public class TransitionScreen extends AppCompatActivity {
             }
         });
 
-        ImageView img = (ImageView) findViewById(R.id.centerCateg);
-        ImageView leftimg = (ImageView) findViewById(R.id.leftCateg);
-        ImageView rightimg = (ImageView) findViewById(R.id.rightCateg);
+        ImageView img = findViewById(R.id.centerCateg);
+        ImageView leftimg = findViewById(R.id.leftCateg);
+        ImageView rightimg = findViewById(R.id.rightCateg);
 
         if (ctr==0){
             img.setImageResource(R.drawable.ear);
@@ -159,10 +204,11 @@ public class TransitionScreen extends AppCompatActivity {
         }
 
 
+    }
 
-
-
-
-
+    public void onBackPressed(){
+        Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+        startActivity(startIntent);
+        finish();
     }
 }

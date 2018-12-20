@@ -21,14 +21,14 @@ public class ChoiceScreen extends AppCompatActivity {
 
         String category = startIntent.getStringExtra("Test_Category");
 
-        TextView tv = (TextView) findViewById(R.id.choiceCategLabel);
+        TextView tv = findViewById(R.id.choiceCategLabel);
         tv.setText(category);
 
         final int ctr = startIntent.getIntExtra("CTR", 0);
 
-        ImageView categImg = (ImageView)findViewById(R.id.categImg);
-        TextView game1 = (TextView) findViewById(R.id.game1);
-        TextView game2 = (TextView) findViewById(R.id.game2);
+        ImageView categImg = findViewById(R.id.categImg);
+        TextView game1 = findViewById(R.id.game1);
+        TextView game2 = findViewById(R.id.game2);
 
 
         if (ctr==0){
@@ -62,7 +62,7 @@ public class ChoiceScreen extends AppCompatActivity {
             game2.setText("Color Impact");
         }
 
-        Button play = (Button)findViewById(R.id.choicePlay);
+        Button play = findViewById(R.id.choicePlay);
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,4 +85,5 @@ public class ChoiceScreen extends AppCompatActivity {
 
     }
 
+    public void onBackPressed(){}
 }

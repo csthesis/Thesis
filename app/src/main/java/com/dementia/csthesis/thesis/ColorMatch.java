@@ -11,6 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 public class ColorMatch extends AppCompatActivity {
     Dialog popup;
 
@@ -20,8 +25,10 @@ public class ColorMatch extends AppCompatActivity {
 
     private boolean match = false;
 
-    private int rand;
-    private int x;
+    private int sc;
+    private int x, xctr = 0;
+
+    private long mTimeLeftInMills = 16000;
 
     private Button a1;
     private int a1num;
@@ -65,21 +72,27 @@ public class ColorMatch extends AppCompatActivity {
     private int btnValue;
 
     private TextView timer;
-    private int ctimer = 20000;
+
+    private Integer[] shuffle;
+    private CountDownTimer cTimer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_match);
 
-        score = (TextView)findViewById(R.id.colorpairscore);
-        timer = (TextView)findViewById(R.id.colormatchTimer);
+        score = findViewById(R.id.colorpairscore);
+        timer = findViewById(R.id.colormatchTimer);
 
         //popup declaration
         popup = new Dialog(this);
 
+
         //generate random color grid
         randomColor();
+
+        startTimer();
 
         a1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,50 +238,33 @@ public class ColorMatch extends AppCompatActivity {
             }
         });
 
-        new CountDownTimer(10000, 1000) {
+
+
+    }
+
+    public void startTimer(){
+        cTimer = new CountDownTimer(mTimeLeftInMills, 1000) {
 
             public void onTick(long millisUntilFinished) {
+                mTimeLeftInMills = millisUntilFinished;
                 String x = new Long(millisUntilFinished / 1000).toString();
                 timer.setText(x);
 
             }
 
             public void onFinish() {
-                popup.setContentView(R.layout.activity_game_cleared);
-                popup.show();
-
-                //set score text on game clear screen
-                TextView sg = popup.findViewById(R.id.scoreGained);
-                String x = new Integer(scoreValue).toString();
-                sg.setText(x);
-
-                Button clearExit = popup.findViewById(R.id.clearExit);
-                Button clearNext = popup.findViewById(R.id.clearNext);
-
-                clearNext.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent startIntent = new Intent(getApplicationContext(), TransitionScreen.class);
-                        startActivity(startIntent);
-                        finish();
-                    }
-                });
-
-                clearExit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
-                        startActivity(startIntent);
-                        finish();
-                    }
-                });
-
-                popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                if(scoreValue <= 0){
+                    Intent startIntent = new Intent(getApplicationContext(), gameOver.class);
+                    startIntent.putExtra("SCORE", scoreValue);
+                    startActivity(startIntent);
+                }else if (scoreValue > 0){
+                    Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
+                    startIntent.putExtra("SCORE", scoreValue);
+                    startActivity(startIntent);
+                }
             }
         }.start();
-
-
-        }
+    }
 
 
     public void check(){
@@ -278,105 +274,170 @@ public class ColorMatch extends AppCompatActivity {
     }
 
     public void hit(){
-        if (match == true){
+        if (match){
             scoreValue += 250;
             String scorestring = new Integer(scoreValue).toString();
             score.setText(scorestring);
             match = false;
+            xctr = 0;
             randomColor();
         }
         else{
             scoreValue -= 50;
             String scorestring = new Integer(scoreValue).toString();
             score.setText(scorestring);
+            xctr = 0;
             randomColor();
         }
     }
 
     public void randomColor(){
+
         //base color
-        base = (Button)findViewById(R.id.colorBase);
-        colorRand();
-        basenum = x;
+        base = findViewById(R.id.colorBase);
+        Random rand = new Random();
+        basenum = rand.nextInt(8) + 1;
+        sc = basenum;
+        setColor();
+
+
+        //array shuffler
+        shuffle = new Integer[]{1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8};
+        List<Integer> list = Arrays.asList(shuffle);
+        Collections.shuffle(list);
+
 
         //column A
-        a1 = (Button)findViewById(R.id.a1);
+        a1 = findViewById(R.id.a1);
         base = a1;
         colorRand();
         a1num = x;
-        a2 = (Button)findViewById(R.id.a2);
+        sc = x;
+        setColor();
+
+        a2 = findViewById(R.id.a2);
         base = a2;
         colorRand();
         a2num = x;
-        a3 = (Button)findViewById(R.id.a3);
+        sc = x;
+        setColor();
+
+        a3 = findViewById(R.id.a3);
         base = a3;
         colorRand();
         a3num = x;
-        a4 = (Button)findViewById(R.id.a4);
+        sc = x;
+        setColor();
+
+        a4 = findViewById(R.id.a4);
         base = a4;
         colorRand();
         a4num = x;
+        sc = x;
+        setColor();
+
 
         //column B
-        b1 = (Button)findViewById(R.id.b1);
+        b1 = findViewById(R.id.b1);
         base = b1;
         colorRand();
         b1num = x;
-        b2 = (Button)findViewById(R.id.b2);
+        sc = x;
+        setColor();
+
+        b2 = findViewById(R.id.b2);
         base = b2;
         colorRand();
         b2num = x;
-        b3 = (Button)findViewById(R.id.b3);
+        sc = x;
+        setColor();
+
+        b3 = findViewById(R.id.b3);
         base = b3;
         colorRand();
         b3num  = x;
-        b4 = (Button)findViewById(R.id.b4);
+        sc = x;
+        setColor();
+
+        b4 = findViewById(R.id.b4);
         base = b4;
         colorRand();
         b4num = x;
+        sc = x;
+        setColor();
+
 
         //column C
-        c1 = (Button)findViewById(R.id.c1);
+        c1 = findViewById(R.id.c1);
         base = c1;
         colorRand();
         c1num = x;
-        c2 = (Button)findViewById(R.id.c2);
+        sc = x;
+        setColor();
+
+        c2 = findViewById(R.id.c2);
         base = c2;
         colorRand();
         c2num = x;
-        c3 = (Button)findViewById(R.id.c3);
+        sc = x;
+        setColor();
+
+        c3 = findViewById(R.id.c3);
         base = c3;
         colorRand();
         c3num = x;
-        c4 = (Button)findViewById(R.id.c4);
+        sc = x;
+        setColor();
+
+        c4 = findViewById(R.id.c4);
         base = c4;
         colorRand();
         c4num =x;
+        sc = x;
+        setColor();
+
 
         //column D
-        d1 = (Button)findViewById(R.id.d1);
+        d1 = findViewById(R.id.d1);
         base = d1;
         colorRand();
         d1num = x;
-        d2 = (Button)findViewById(R.id.d2);
+        sc = x;
+        setColor();
+
+        d2 = findViewById(R.id.d2);
         base = d2;
         colorRand();
         d2num = x;
-        d3 = (Button)findViewById(R.id.d3);
+        sc = x;
+        setColor();
+
+        d3 = findViewById(R.id.d3);
         base = d3;
         colorRand();
         d3num = x;
-        d4 = (Button)findViewById(R.id.d4);
+        sc = x;
+        setColor();
+
+        d4 = findViewById(R.id.d4);
         base = d4;
         colorRand();
         d4num = x;
+        sc = x;
+        setColor();
 
     }
 
     public int colorRand() {
-        rand = (int) (Math.random() * 6 + 1);
-        x = rand;
-        switch (rand) {
+        x = shuffle[xctr];
+        xctr += 1;
+
+        return x;
+    }
+
+    public void setColor(){
+
+        switch (sc) {
             case 1:
                 base.setBackgroundColor(getResources().getColor(R.color.redMatch));
                 break;
@@ -400,33 +461,37 @@ public class ColorMatch extends AppCompatActivity {
             case 6:
                 base.setBackgroundColor(getResources().getColor(R.color.violetMatch));
                 break;
+
+            case 7:
+                base.setBackgroundColor(getResources().getColor(R.color.cyanMatch));
+                break;
+
+            case 8:
+                base.setBackgroundColor(getResources().getColor(R.color.brownMatch));
+                break;
         }
-        return x;
     }
 
-
-
-
-
-
     public void pause(View v){
+        cTimer.cancel();
         popup.setContentView(R.layout.activity_ingame_pause);
         popup.show();
 
         Button pauseClose = popup.findViewById(R.id.ingamePauseClose);
         Button returnGame = popup.findViewById(R.id.ingameReturn);
         Button main = popup.findViewById(R.id.ingameExit);
-        Button sett = popup.findViewById(R.id.ingameSettings);
 
         pauseClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startTimer();
                 popup.dismiss();
             }
         });
         returnGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startTimer();
                 popup.dismiss();
             }
         });
@@ -438,16 +503,13 @@ public class ColorMatch extends AppCompatActivity {
                 finish();
             }
         });
-        sett.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                popup.setContentView(R.layout.activity_main_settings);
-//                popup.show();
-            }
-        });
+
         //make the bg transparent
         popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
+    public void onBackPressed(){
+        pause(null);
+    }
 }
 

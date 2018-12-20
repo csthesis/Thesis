@@ -7,6 +7,36 @@
     android:background="@color/bgColor"
     tools:context=".SoundRecog">
 
+    <TextView
+        android:id="@+id/timeLabel2"
+        android:layout_width="110dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="Time Left"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/audioLabel"
+        app:layout_constraintStart_toStartOf="@+id/audioLabel"
+        app:layout_constraintTop_toBottomOf="@+id/audioLabel" />
+
+    <TextView
+        android:id="@+id/soundRecogTimer"
+        android:layout_width="102dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="0000"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="@+id/timeLabel2"
+        app:layout_constraintStart_toStartOf="@+id/timeLabel2"
+        app:layout_constraintTop_toBottomOf="@+id/timeLabel2" />
+
     <Button
         android:id="@+id/soundRecogPause"
         android:layout_width="60dp"
@@ -30,18 +60,18 @@
 
     <Button
         android:id="@+id/playButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/volume"
+        android:background="@drawable/play"
         android:onClick="play"
-        app:layout_constraintBottom_toTopOf="@+id/audioWavesImg"
+        app:layout_constraintBottom_toTopOf="@+id/choice1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/audioLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/soundRecogTimer" />
 
     <TextView
         android:id="@+id/audioLabel"
@@ -52,72 +82,58 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
-        android:text="Audio Game"
+        android:text="Sound Recognition"
         android:textAlignment="center"
         android:textColor="@color/textBlack"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/audioImg"
         app:layout_constraintStart_toEndOf="@+id/soundRecogPause"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/audioWavesImg"
-        android:layout_width="249dp"
-        android:layout_height="119dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/choice1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton"
-        app:srcCompat="@color/colorPrimary" />
 
     <Button
         android:id="@+id/choice1"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorAccent"
         android:fontFamily="@font/aldrich"
         android:text="Person"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/audioWavesImg" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/choice2"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorAccent"
         android:fontFamily="@font/aldrich"
         android:text="Animal"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choice1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/choice3"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@color/colorAccent"
         android:fontFamily="@font/aldrich"
         android:text="Musical Instrument"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choice2" />
+        app:layout_constraintStart_toStartOf="parent" />
 </android.support.constraint.ConstraintLayout>

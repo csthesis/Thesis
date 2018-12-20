@@ -20,7 +20,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         popup = new Dialog(this);
 
-        Button start = (Button) findViewById(R.id.menuStart);
+        Button start = findViewById(R.id.menuStart);
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,7 +83,5 @@ public class MainMenu extends AppCompatActivity {
     }
 
     public void onBackPressed(){
-
-        finish();
     }
 }

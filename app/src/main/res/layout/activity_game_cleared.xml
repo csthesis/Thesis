@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/scoreGained"
+        android:id="@+id/finalScore"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -37,12 +37,12 @@
         android:textAlignment="center"
         android:textColor="@color/textWhite"
         android:textSize="42sp"
-        app:layout_constraintBottom_toTopOf="@+id/ingameclearedLabel2"
+        app:layout_constraintBottom_toTopOf="@+id/gameOverLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/ingameclearedLabel2"
+        android:id="@+id/gameOverLabel"
         android:layout_width="182dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

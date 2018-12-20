@@ -2,8 +2,8 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="300dp"
-    android:layout_height="350dp"
+    android:layout_width="320dp"
+    android:layout_height="450dp"
     android:layout_gravity="center"
     android:background="@color/colorPrimaryDark"
     tools:context=".gameOver">
@@ -24,6 +24,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/finalScore"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="0000"
+        android:textAlignment="center"
+        android:textColor="@color/textWhite"
+        android:textSize="42sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gameOver" />
+
+    <TextView
+        android:id="@+id/gameOverLabel"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="Final Score"
+        android:textAlignment="center"
+        android:textColor="@color/textWhite"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/finalScore" />
 
     <Button
         android:id="@+id/mainMenu"
