@@ -1,5 +1,6 @@
 package com.dementia.csthesis.thesis;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -383,10 +384,18 @@ public class Tictactoe extends AppCompatActivity {
 
             ctr.setText("");
             turn = 1;
-        }
-     /*   if(scoreValue==4000){
 
-        }*/
+            if(scoreValue == 3000){
+                Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
+                startIntent.putExtra("SCORE", scoreValue);
+                startActivity(startIntent);
+
+
+            }
+        }
+
+
+
 
     }
 //end
