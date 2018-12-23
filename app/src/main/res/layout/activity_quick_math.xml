@@ -1,59 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgColor"
-    tools:context=".QuickMath">
+    tools:context=".QuickMath"
+    tools:layout_editor_absoluteY="25dp">
 
-    <Button
-        android:id="@+id/choice4"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
-        android:fontFamily="@font/aldrich"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/choice5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/choice5"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
-        android:fontFamily="@font/aldrich"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/choice6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/choice6"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
-        android:fontFamily="@font/aldrich"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <ImageView
+        android:id="@+id/equals"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/num2"
+        app:layout_constraintStart_toEndOf="@+id/num2"
+        app:layout_constraintTop_toTopOf="@+id/num2"
+        app:srcCompat="@drawable/equal" />
 
     <TextView
-        android:id="@+id/mathLabel"
+        android:id="@+id/scoreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Score"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/categImg"
+        app:layout_constraintTop_toBottomOf="@+id/categImg" />
+
+    <TextView
+        android:id="@+id/lifeLabel"
+        android:layout_width="43dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Life"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="22sp"
+        app:layout_constraintStart_toStartOf="@+id/pipePause2"
+        app:layout_constraintTop_toBottomOf="@+id/pipePause2" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="0000"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/scoreLabel"
+        app:layout_constraintStart_toStartOf="@+id/scoreLabel"
+        app:layout_constraintTop_toBottomOf="@+id/scoreLabel" />
+
+    <ImageView
+        android:id="@+id/life1"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/lifeLabel"
+        app:layout_constraintTop_toBottomOf="@+id/lifeLabel"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/life2"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/life1"
+        app:layout_constraintTop_toTopOf="@+id/life1"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/life3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toEndOf="@+id/life2"
+        app:layout_constraintTop_toTopOf="@+id/life2"
+        app:srcCompat="@drawable/heart" />
+
+    <Button
+        android:id="@+id/pipePause2"
+        android:layout_width="58dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/pause"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/categLabel"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -61,16 +109,16 @@
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
-        android:text="Math Game"
+        android:text="Quick Math"
         android:textAlignment="center"
         android:textColor="@color/textBlack"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/mathImg"
-        app:layout_constraintStart_toEndOf="@+id/refMathPause"
+        app:layout_constraintEnd_toStartOf="@+id/categImg"
+        app:layout_constraintStart_toEndOf="@+id/pipePause2"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/mathImg"
+        android:id="@+id/categImg"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
@@ -80,111 +128,108 @@
         app:srcCompat="@drawable/calculator" />
 
     <Button
-        android:id="@+id/refMathPause"
-        android:layout_width="60dp"
+        android:id="@+id/choice1"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="23"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice2"
+        app:layout_constraintEnd_toEndOf="@+id/choice2"
+        app:layout_constraintStart_toStartOf="@+id/choice2" />
+
+    <Button
+        android:id="@+id/choice2"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="23"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice3"
+        app:layout_constraintEnd_toEndOf="@+id/choice3"
+        app:layout_constraintStart_toStartOf="@+id/choice3" />
+
+    <Button
+        android:id="@+id/choice3"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/pause"
-        android:onClick="pause"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/operation"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/num2"
-        app:layout_constraintEnd_toStartOf="@+id/num2"
-        app:layout_constraintStart_toEndOf="@+id/num1"
-        app:layout_constraintTop_toTopOf="@+id/num2"
-        app:srcCompat="@drawable/minus" />
-
-    <ImageView
-        android:id="@+id/equal"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/num2"
-        app:layout_constraintEnd_toStartOf="@+id/total"
-        app:layout_constraintStart_toEndOf="@+id/num2"
-        app:layout_constraintTop_toTopOf="@+id/num2"
-        app:srcCompat="@drawable/equal" />
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="23"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/num1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
-        android:text="12"
+        android:text="23"
+        android:textAlignment="center"
         android:textColor="@color/textBlack"
-        android:textSize="55sp"
-        app:layout_constraintEnd_toStartOf="@+id/operation"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/num2" />
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="@+id/operandImg"
+        app:layout_constraintEnd_toStartOf="@+id/operandImg"
+        app:layout_constraintTop_toTopOf="@+id/operandImg" />
 
     <TextView
         android:id="@+id/num2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/aldrich"
-        android:gravity="center"
-        android:text="45"
-        android:textColor="@color/textBlack"
-        android:textSize="55sp"
-        app:layout_constraintEnd_toStartOf="@+id/equal"
-        app:layout_constraintStart_toEndOf="@+id/operation"
-        app:layout_constraintTop_toBottomOf="@+id/quickMathTimer" />
-
-    <TextView
-        android:id="@+id/timeLabel"
-        android:layout_width="110dp"
-        android:layout_height="22dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/aldrich"
-        android:gravity="center"
-        android:text="Time Left"
-        android:textAlignment="center"
-        android:textColor="@color/textBlack"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/mathLabel"
-        app:layout_constraintStart_toStartOf="@+id/mathLabel"
-        app:layout_constraintTop_toBottomOf="@+id/mathLabel" />
-
-    <TextView
-        android:id="@+id/quickMathTimer"
-        android:layout_width="102dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/aldrich"
-        android:gravity="center"
-        android:text="0000"
-        android:textAlignment="center"
-        android:textColor="@color/textBlack"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="@+id/timeLabel"
-        app:layout_constraintStart_toStartOf="@+id/timeLabel"
-        app:layout_constraintTop_toBottomOf="@+id/timeLabel" />
-
-    <TextView
-        android:id="@+id/total"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="42"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="45sp"
+        app:layout_constraintBottom_toTopOf="@+id/choice1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/life3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
         android:text="?"
+        android:textAlignment="center"
         android:textColor="@color/textBlack"
-        android:textSize="55sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/equal"
-        app:layout_constraintTop_toTopOf="@+id/num2" />
+        android:textSize="45sp"
+        app:layout_constraintBottom_toBottomOf="@+id/equals"
+        app:layout_constraintStart_toEndOf="@+id/equals"
+        app:layout_constraintTop_toTopOf="@+id/equals" />
+
+    <ImageView
+        android:id="@+id/operandImg"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/num2"
+        app:layout_constraintEnd_toStartOf="@+id/num2"
+        app:layout_constraintTop_toTopOf="@+id/num2"
+        app:srcCompat="@drawable/plus" />
 </android.support.constraint.ConstraintLayout>

@@ -20,13 +20,15 @@ import java.util.Random;
 public class QuickMath extends AppCompatActivity {
     Dialog popup;
 
+    private int num1, num2, dum1, dum2, x, key, z, ctr = 0, life = 3;
+
     private  int score, xtop, xbot;
 
-    private TextView mathTimer;
+    private ImageView operand, life1, life2, life3;
 
-    private CountDownTimer cTimer;
+    private TextView fnum, snum, tscore;
 
-    private long mTimeLeftInMills = 11000;
+    private Button btn1, btn2, btn3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,22 +36,99 @@ public class QuickMath extends AppCompatActivity {
         setContentView(R.layout.activity_quick_math);
         popup = new Dialog(this);
 
-        int num1, num2, dum1, dum2, x, key, z;
-        ImageView operand = findViewById(R.id.operation);
-        Random rand = new Random();
-        key = rand.nextInt(2) + 1;
+        life1 = findViewById(R.id.life1);
+        life2 = findViewById(R.id.life2);
+        life3 = findViewById(R.id.life3);
 
-        TextView fnum = findViewById(R.id.num1);
-        TextView snum = findViewById(R.id.num2);
+        tscore = findViewById(R.id.scoreText);
+        operand = findViewById(R.id.operandImg);
 
-        Button btn1 = findViewById(R.id.choice4);
-        Button btn2 = findViewById(R.id.choice5);
-        Button btn3 = findViewById(R.id.choice6);
+        fnum = findViewById(R.id.num1);
+        snum = findViewById(R.id.num2);
 
-        mathTimer = findViewById(R.id.quickMathTimer);
+        btn1 = findViewById(R.id.choice1);
+        btn2 = findViewById(R.id.choice2);
+        btn3 = findViewById(R.id.choice3);
+
 
         x = 0;
 
+        genRand();
+        assignKeys();
+
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(key == 1){
+
+                    if(ctr == 3){
+                        correct();
+                        gameClear();
+
+                    }
+                    else if (ctr != 3){
+                        correct();
+                        genRand();
+                        assignKeys();
+                    }
+                }
+                else
+                    deduclife();
+            }
+        });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(key == 2){
+
+                    if(ctr == 3){
+                        correct();
+                        gameClear();
+
+                    }
+                    else if (ctr != 3){
+                        correct();
+                        genRand();
+                        assignKeys();
+                    }
+                }
+                else
+                    deduclife();
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(key == 3){
+
+                    if(ctr == 3){
+                        correct();
+                        gameClear();
+
+                    }
+                    else if (ctr != 3){
+                        correct();
+                        genRand();
+                        assignKeys();
+                    }
+                }
+                else
+                    deduclife();
+
+            }
+        });
+
+    }
+
+    public void genRand(){
+        ctr += 1;
+
+        Random rand = new Random();
+        key = rand.nextInt(3) + 1;
         z = rand.nextInt(2) +1;
 
         switch (z){
@@ -78,119 +157,83 @@ public class QuickMath extends AppCompatActivity {
 
         dum2 = rand.nextInt((x - 1) - xbot) + xbot;
 
-        startTimer();
 
+    }
+
+    public void assignKeys(){
         switch (key){
 
             case 1:
+
                 btn1.setText(Integer.toString(x));
                 btn2.setText(Integer.toString(dum1));
                 btn3.setText(Integer.toString(dum2));
 
-                btn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameClear();
-
-                    }
-                });
-
-                btn2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameOver();
-                    }
-                });
-
-                btn3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameOver();
-                    }
-                });
-
                 break;
             case 2:
 
-                btn2.setText(Integer.toString(x));
                 btn1.setText(Integer.toString(dum1));
+                btn2.setText(Integer.toString(x));
                 btn3.setText(Integer.toString(dum2));
-
-                btn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameOver();
-                    }
-                });
-
-                btn2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        gameClear();
-                    }
-                });
-
-                btn3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameOver();
-                    }
-                });
 
                 break;
             case 3:
-                btn3.setText(Integer.toString(x));
-                btn2.setText(Integer.toString(dum1));
+
                 btn1.setText(Integer.toString(dum2));
+                btn2.setText(Integer.toString(dum1));
+                btn3.setText(Integer.toString(x));
 
-                btn1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameOver();
-                    }
-                });
-
-                btn2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gameOver();
-                    }
-                });
-
-                btn3.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        gameClear();
-
-                    }
-                });
                 break;
 
 
         }
     }
 
-    public void startTimer(){
-        cTimer = new CountDownTimer(mTimeLeftInMills, 1000){
+    public void deduclife() {
 
-            @Override
-            public void onTick(long millisUntilFinished) {
-                mTimeLeftInMills = millisUntilFinished;
-                String xtimer = new Long(millisUntilFinished / 1000).toString();
-                mathTimer.setText(xtimer);
-            }
+        life -= 1;
+        switch (life) {
+            case 2:
+                life3.setImageResource(R.drawable.blackheart);
+                break;
+            case 1:
+                life2.setImageResource(R.drawable.blackheart);
+                break;
+            case 0:
+                life1.setImageResource(R.drawable.blackheart);
 
-            @Override
-            public void onFinish() {
-                gameOver();
-            }
-        }.start();
+                Intent startIntent = new Intent(getApplicationContext(), gameOver.class);
+                startIntent.putExtra("SCORE", score);
+                startActivity(startIntent);
+
+                break;
+        }
+    }
+
+
+    public void correct(){
+        score += 1000;
+        String scorestring = new Integer(score).toString();
+        tscore.setText(scorestring);
+    }
+
+    public void gameClear(){
+        score = 2000;
+
+        Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
+        startIntent.putExtra("SCORE", score);
+        startActivity(startIntent);
+    }
+
+    public void gameOver(){
+
+        Intent startIntent = new Intent(getApplicationContext(), gameOver.class);
+        startIntent.putExtra("SCORE", score);
+        startActivity(startIntent);
+
     }
 
     public void pause(View v){
-        cTimer.cancel();
         popup.setContentView(R.layout.activity_ingame_pause);
         popup.show();
 
@@ -201,14 +244,12 @@ public class QuickMath extends AppCompatActivity {
         pauseClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startTimer();
                 popup.dismiss();
             }
         });
         returnGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startTimer();
                 popup.dismiss();
             }
         });
@@ -224,25 +265,6 @@ public class QuickMath extends AppCompatActivity {
 
 
         popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-    }
-
-    public void gameClear(){
-        score = 2000;
-
-        cTimer.cancel();
-
-        Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
-        startIntent.putExtra("SCORE", score);
-        startActivity(startIntent);
-    }
-
-    public void gameOver(){
-
-        cTimer.cancel();
-        Intent startIntent = new Intent(getApplicationContext(), gameOver.class);
-        startIntent.putExtra("SCORE", score);
-        startActivity(startIntent);
-
     }
 
     public void onBackPressed(){
