@@ -60,6 +60,7 @@ public class WordGuess extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.orangeTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word_guess);
         popup = new Dialog(this);

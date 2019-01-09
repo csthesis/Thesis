@@ -5,10 +5,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgColor"
+    android:background="@color/bgGreen"
     tools:context=".QuickMath"
     tools:layout_editor_absoluteY="25dp">
 
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/greendark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/pause"
+            android:onClick="pause"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:text="Quick Math"
+            android:textAlignment="center"
+            android:textColor="@color/textBlack"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/categoryimg"
+            app:layout_constraintStart_toEndOf="@+id/pause"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/categoryimg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logic" />
+    </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/greendark"
+        android:fontFamily="@font/aldrich"
+        android:text="Choose the right answer for the given problem"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/equals"
@@ -23,36 +91,36 @@
     <TextView
         android:id="@+id/scoreLabel"
         android:layout_width="wrap_content"
-        android:layout_height="22dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
         android:text="Score"
         android:textAlignment="center"
         android:textColor="@color/textBlack"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="@+id/categImg"
-        app:layout_constraintTop_toBottomOf="@+id/categImg" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lifeLabel" />
 
     <TextView
         android:id="@+id/lifeLabel"
-        android:layout_width="43dp"
-        android:layout_height="22dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/aldrich"
         android:text="Life"
         android:textAlignment="center"
         android:textColor="@color/textBlack"
-        android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="@+id/pipePause2"
-        app:layout_constraintTop_toBottomOf="@+id/pipePause2" />
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
 
     <TextView
         android:id="@+id/scoreText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
         android:text="0000"
@@ -60,7 +128,6 @@
         android:textColor="@color/textBlack"
         android:textSize="22sp"
         app:layout_constraintEnd_toEndOf="@+id/scoreLabel"
-        app:layout_constraintStart_toStartOf="@+id/scoreLabel"
         app:layout_constraintTop_toBottomOf="@+id/scoreLabel" />
 
     <ImageView
@@ -91,48 +158,11 @@
         app:srcCompat="@drawable/heart" />
 
     <Button
-        android:id="@+id/pipePause2"
-        android:layout_width="58dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/pause"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/categLabel"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/aldrich"
-        android:gravity="center"
-        android:text="Quick Math"
-        android:textAlignment="center"
-        android:textColor="@color/textBlack"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/categImg"
-        app:layout_constraintStart_toEndOf="@+id/pipePause2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/categImg"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/calculator" />
-
-    <Button
         android:id="@+id/choice1"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
+        android:background="@color/greenLight"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
         android:text="23"
@@ -147,7 +177,7 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
+        android:background="@color/greenLight"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
         android:text="23"
@@ -164,14 +194,15 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent"
+        android:background="@color/greenLight"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
         android:text="23"
         android:textAlignment="center"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView

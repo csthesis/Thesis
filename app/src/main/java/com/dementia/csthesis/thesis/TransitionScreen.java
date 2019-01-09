@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 public class TransitionScreen extends AppCompatActivity {
@@ -18,6 +19,9 @@ public class TransitionScreen extends AppCompatActivity {
     WeightDatabaseOpenHelper myDb;
 
     private ArrayList<Float> weights = new ArrayList<Float>();
+
+    private int r;
+
     public static String[] cat = {"Audio Game", "Visual Game", "Word Game", "Logic Game", "Memory Game", "Reflex Game"};
 
     private String[] col = {"AUDIO", "VISUAL", "WORD", "LOGIC", "MEMORY", "REFLEX"};
@@ -25,16 +29,21 @@ public class TransitionScreen extends AppCompatActivity {
 
     private float container;
 
+    private int choice = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_transition_screen);
+
         myDb = new WeightDatabaseOpenHelper(this);
+
+        Random rand = new Random();
 
         //variable declaration
         int ctr, ctr2, intweightsum;
 
-        float randomweight, fltweightsum, deduc, add, x;
+        float randomweight, fltweightsum, deduc, z, add, x;
 
         WeightDatabaseAccess weightDatabaseAccess = WeightDatabaseAccess.getInstance(getApplicationContext());
         weightDatabaseAccess.open();
@@ -46,12 +55,19 @@ public class TransitionScreen extends AppCompatActivity {
         }
 
         weightDatabaseAccess.close();
+        //=============================================================================
+        //initiate weight sort here
+
+
+        //=============================================================================
+
 
         for(ctr2 = 0; ctr2 < 6; ctr2++){
             Log.d("", "initial weights ===================== \t" +col[ctr2]+ "\t" + weights.get(ctr2));
         }
 
 
+        //=============================================================================
         fltweightsum = 0;
         //summation of weights
         for (ctr = 0; ctr < 6; ctr++) {
@@ -61,7 +77,6 @@ public class TransitionScreen extends AppCompatActivity {
         //conversion of float to int
         intweightsum = Math.round(fltweightsum);
         //testing of weights
-        Random rand = new Random();
         for (ctr = 0; ctr < 6; ctr++) {
             //random number generator
             randomweight = rand.nextInt(intweightsum) + 1;
@@ -71,10 +86,15 @@ public class TransitionScreen extends AppCompatActivity {
             if (x <= 0) {
                 //deducting weights to randomed weight
                 container = weights.get(ctr);
-                deduc = container / 2;
+
+                double d = container * 0.9;
+                deduc = (float)d;
+                double c = container - d;
+                z = (float)c;
+
 
                 //assigning value to deduc
-                weights.set(ctr, deduc);
+                weights.set(ctr, z);
                 container = weights.get(ctr);
 
                 //dividing the deduc value to 5
@@ -93,13 +113,10 @@ public class TransitionScreen extends AppCompatActivity {
                 ctr = 0;
             }
         }
+        //=============================================================================
 
 
         weightDatabaseAccess.open();
-//        weightDatabaseAccess.deleteWeight();
-//        for(ctr2 = 0; ctr2 < 6; ctr2++){
-//            Log.d("", "deleted weights ===================== " + weights.get(ctr2));
-//        }
 
         //database insert loop
         for(ctr2 = 0; ctr2 < 6; ctr2++){
@@ -108,6 +125,8 @@ public class TransitionScreen extends AppCompatActivity {
         }
 
         weightDatabaseAccess.close();
+
+
 
         for(ctr2 = 0; ctr2 < 6; ctr2++){
             Log.d("", "deducted weights ===================== \t" +col[ctr2]+ "\t"  + weights.get(ctr2));
@@ -126,38 +145,106 @@ public class TransitionScreen extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Random rand = new Random();
 
                 Intent startIntent = new Intent();
 
                 switch (finalCtr){
-
+                    //Sound category ========================================
                     case 0:
-                        startIntent = new Intent(getApplicationContext(), SoundRecog.class);
+                        //change bound depending on the number of finished games
+                        r = rand.nextInt(5);
+
+                        switch(r){
+
+                            case 0:
+                                startIntent = new Intent(getApplicationContext(), AnimalSounds.class);
+                                break;
+                            case 1:
+                                startIntent = new Intent(getApplicationContext(), HumanSound.class);
+                                break;
+                            case 2:
+                                startIntent = new Intent(getApplicationContext(), SoundEfects.class);
+                                break;
+                            case 3:
+                                startIntent = new Intent(getApplicationContext(), SoundSorting.class);
+                                break;
+                            case 4:
+                                startIntent = new Intent(getApplicationContext(), soundImage.class);
+                                break;
+                        }
                         startActivity(startIntent);
                         finish();
                         break;
+
+                    //Visual category ========================================
                     case 1:
-                        startIntent = new Intent(getApplicationContext(), ColorMatch.class);
+                        //change bound depending on the number of finished games
+                        r = rand.nextInt(2);
+
+                        switch(r){
+
+                            case 0:
+                                startIntent = new Intent(getApplicationContext(), ColorMatch.class);
+                                break;
+                            case 1:
+                                startIntent = new Intent(getApplicationContext(), MatchThree.class);
+                                break;
+                        }
                         startActivity(startIntent);
                         finish();
                         break;
+
+                    //Word category ========================================
                     case 2:
                         startIntent = new Intent(getApplicationContext(), WordGuess.class);
                         startActivity(startIntent);
                         finish();
                         break;
+
+                    //Logic category ========================================
                     case 3:
-                        startIntent = new Intent(getApplicationContext(), QuickMath.class);
+                        //change bound depending on the number of finished games
+                        r = rand.nextInt(3);
+
+                        switch(r){
+
+                            case 0:
+                                startIntent = new Intent(getApplicationContext(), QuickMath.class);
+                                break;
+                            case 1:
+                                startIntent = new Intent(getApplicationContext(), PipeConnect.class);
+                                break;
+                            case 2:
+                                startIntent = new Intent(getApplicationContext(), Tictactoe.class);
+                                break;
+                        }
                         startActivity(startIntent);
                         finish();
                         break;
+
+                    //Memory category ========================================
                     case 4:
                         startIntent = new Intent(getApplicationContext(), ColorPair.class);
                         startActivity(startIntent);
                         finish();
                         break;
+
+                    //Reflex category ========================================
                     case 5:
-                        startIntent = new Intent(getApplicationContext(), ColorImpact.class);
+                        //change bound depending on the number of finished games
+//                        r = rand.nextInt(2);
+                        r = 0;
+
+                        switch(r){
+
+                            case 0:
+                                startIntent = new Intent(getApplicationContext(), ColorImpact.class);
+                                break;
+                            case 1:
+                                startIntent = new Intent(getApplicationContext(), whackMole.class);
+                                break;
+                        }
                         startActivity(startIntent);
                         finish();
                         break;
@@ -183,12 +270,12 @@ public class TransitionScreen extends AppCompatActivity {
 //            rightimg.setImageResource(R.drawable.book);
         }
         else if(ctr==2){
-            img.setImageResource(R.drawable.book);
+            img.setImageResource(R.drawable.abc);
 //            leftimg.setImageResource(R.drawable.eye);
 //            rightimg.setImageResource(R.drawable.calculator);
         }
         else if(ctr==3){
-            img.setImageResource(R.drawable.calculator);
+            img.setImageResource(R.drawable.logic);
 //            leftimg.setImageResource(R.drawable.book);
 //            rightimg.setImageResource(R.drawable.brain);
         }
@@ -202,7 +289,6 @@ public class TransitionScreen extends AppCompatActivity {
 //            leftimg.setImageResource(R.drawable.brain);
 //            rightimg.setImageResource(R.drawable.ear);
         }
-
 
     }
 

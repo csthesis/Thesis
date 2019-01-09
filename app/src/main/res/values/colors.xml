@@ -8,8 +8,64 @@
     <color name="textWhite">#e4e1ef</color>
     <color name="textPrimaryDark">#320959</color>
 
+
+    <!--Reflex-->
+    <color name="bgBlue">#3fbbf1</color>
+    <color name="blueLight">#7ed3f8</color>
+    <color name="bluedark">#2480c5</color>
+    <color name="blueAccent">#63b8e9</color>
+
+    <!--visual-->
+    <color name="bgYellow">#e9e261</color>
+    <color name="yellowLight">#fdf89d</color>
+    <color name="yellowdark">#c0ba43</color>
+    <color name="yellowAccent">#f1923f</color>
+
+    <!--memory-->
+    <color name="bgRed">#ec6b77</color>
+    <color name="redLight">#f3b6bd</color>
+    <color name="reddark">#de435b</color>
+    <color name="redAccent">#ac56da</color>
+
+    <!--logic-->
+    <color name="bgGreen">#77e7af</color>
+    <color name="greenLight">#b5f4d5</color>
+    <color name="greendark">#30b473</color>
+    <color name="greenAccent">#419760</color>
+
+    <!--audio-->
+    <color name="bgViolet">#b08ab8</color>
+    <color name="violetLight">#ccb3d1</color>
+    <color name="violetdark">#9356a2</color>
+    <color name="violetAccent">#bc3f7e</color>
+
+    <!--word-->
+    <color name="bgOrange">#f19b79</color>
+    <color name="orangeLight">#fac4ac</color>
+    <color name="orangedark">#ea6c49</color>
+    <color name="orangeAccent">#f7d576</color>
+
+
+
+
+    <color name="crc">#c8923ec4</color>
+    <color name="str">#c8fdd944</color>
+    <color name="hrt">#c8ef5228</color>
+    <color name="pnt">#c85c7a46</color>
+    <color name="sqr">#c8f187f1</color>
+
+
+
+
+
+
+
+
+
+
+
     //colorImpact
-    <color name="blueFire">#1C2E5F</color>
+    <color name="blueFire">#1c2e5f</color>
     <color name="greenFire">#007740</color>
     <color name="redFire">#BA202F</color>
 
@@ -23,6 +79,15 @@
     //----added for colorPair-----
     <color name="cyanMatch">#39beb5</color>
     <color name="brownMatch">#7c604e</color>
+
+
+    //match 3
+    <color name="red">#e43243</color>
+    <color name="orange">#ff8c44</color>
+    <color name="yellow">#eace3d</color>
+    <color name="green">#45932e</color>
+    <color name="blue">#416ef7</color>
+
 
 
 </resources>

@@ -1,6 +1,9 @@
 package com.dementia.csthesis.thesis;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +14,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class Tictactoe extends AppCompatActivity {
+    Dialog popup;
     private int turn;
     private int z = 9, i, x;
     String ba, bb, bc, bd, be, bf, bg, bh, bi;
@@ -22,8 +26,10 @@ public class Tictactoe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.greenTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tictactoe);
+        popup = new Dialog(this);
 
 
         b[0] = (Button) findViewById(R.id.b1);
@@ -641,8 +647,50 @@ public class Tictactoe extends AppCompatActivity {
             b[7].setText("");
             b[8].setText("");
         }
+
+
+
+    }
+    public void pause(View view){
+
+        popup.setContentView(R.layout.activity_ingame_pause);
+        popup.show();
+
+        Button pauseClose = popup.findViewById(R.id.ingamePauseClose);
+        Button returnGame = popup.findViewById(R.id.ingameReturn);
+        Button main = popup.findViewById(R.id.ingameExit);
+
+        pauseClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+        returnGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+
+            }
+        });
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(startIntent);
+
+
+            }
+        });
+
+        popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
+    public void onBackPressed(){
+        pause(null);
+    }
 
 
 

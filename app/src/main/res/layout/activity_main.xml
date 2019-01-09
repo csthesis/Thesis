@@ -4,59 +4,191 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bgColor"
+    android:background="@color/bgViolet"
     tools:context=".MainMenu">
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="Settings"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/menuSettings"
+        app:layout_constraintEnd_toEndOf="@+id/menuSettings"
+        app:layout_constraintStart_toStartOf="@+id/menuSettings" />
+
+    <Button
+        android:id="@+id/menuExit"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/mainexit"
+        android:elevation="14dp"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/menuStart"
+        app:layout_constraintStart_toStartOf="@+id/menuStart"
+        app:layout_constraintTop_toBottomOf="@+id/menuStart" />
 
     <Button
         android:id="@+id/menuStart"
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/play"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/mainplay"
+        android:elevation="14dp"
         android:fontFamily="@font/aldrich"
-        android:textColor="@color/textWhite"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65999997" />
 
     <Button
         android:id="@+id/menuSettings"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/settings"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/mainsettings"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
         android:onClick="ShowSettings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/menuStart"
+        app:layout_constraintEnd_toEndOf="@+id/menuScores2"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="@+id/textView27" />
 
     <Button
         android:id="@+id/menuScores"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/scores"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/mainhiscore"
         android:onClick="ShowScores"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/menuStart"
+        app:layout_constraintEnd_toEndOf="@+id/textView27"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/menuStats" />
+
+    <Button
+        android:id="@+id/menuScores2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/mainmore"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/menuExit"
+        app:layout_constraintStart_toEndOf="@+id/menuStart"
+        app:layout_constraintTop_toTopOf="@+id/menuStart"
+        app:layout_constraintVertical_bias="0.39999998" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="Credits"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/menuScores2"
+        app:layout_constraintStart_toStartOf="@+id/menuScores2"
+        app:layout_constraintTop_toBottomOf="@+id/menuScores2" />
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="Exit Game"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/menuExit"
+        app:layout_constraintStart_toStartOf="@+id/menuExit"
+        app:layout_constraintTop_toBottomOf="@+id/menuExit" />
 
     <Button
         android:id="@+id/menuStats"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/linechart"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/mainstats"
         android:onClick="ShowStats"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/menuExit"
+        app:layout_constraintEnd_toStartOf="@+id/menuStart"
+        app:layout_constraintTop_toTopOf="@+id/menuStart"
+        app:layout_constraintVertical_bias="0.39999998" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="High Scores"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/menuScores"
+        app:layout_constraintEnd_toEndOf="@+id/menuScores"
+        app:layout_constraintStart_toStartOf="@+id/menuScores" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:text="Statistics"
+        android:textAlignment="center"
+        android:textColor="@color/textPrimaryDark"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/menuStats"
+        app:layout_constraintStart_toStartOf="@+id/menuStats"
+        app:layout_constraintTop_toBottomOf="@+id/menuStats" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/menuStart"
+        app:layout_constraintEnd_toEndOf="@+id/menuStart"
+        app:layout_constraintStart_toStartOf="@+id/menuStart" />
 </android.support.constraint.ConstraintLayout>

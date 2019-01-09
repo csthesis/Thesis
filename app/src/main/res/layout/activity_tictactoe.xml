@@ -5,70 +5,102 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Tictactoe"
-    android:background="@color/bgColor"
+    android:background="@color/bgGreen"
     tools:layout_editor_absoluteY="25dp">
 
-    <Button
-        android:id="@+id/pause2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/pause"
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/greendark"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/pause"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/pause"
+            android:onClick="pause"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:text="Tic Tac Toe"
+            android:textAlignment="center"
+            android:textColor="@color/textBlack"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/categoryimg"
+            app:layout_constraintStart_toEndOf="@+id/pause"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/categoryimg"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logic" />
+
+    </android.support.constraint.ConstraintLayout>
 
     <TextView
-        android:id="@+id/label2"
-        android:layout_width="233dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/textView21"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/greendark"
         android:fontFamily="@font/aldrich"
-        android:gravity="center"
-        android:text="Tic Tac Toe"
+        android:text="Win three times to clear the game"
         android:textAlignment="center"
         android:textColor="@color/textBlack"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/categoryimg2"
-        app:layout_constraintStart_toEndOf="@+id/pause2"
-        app:layout_constraintTop_toTopOf="@+id/pause2" />
-
-    <ImageView
-        android:id="@+id/categoryimg2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/calculator" />
-
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/scr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
-        android:text="Score:"
+        android:text="Score"
         android:textColor="@color/textBlack"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/pause2"
-        app:layout_constraintTop_toBottomOf="@+id/pause2" />
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
     <TextView
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
         android:text="0"
         android:textColor="@color/textBlack"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/scr"
-        app:layout_constraintStart_toEndOf="@+id/scr"
-        app:layout_constraintTop_toTopOf="@+id/scr" />
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/scr"
+        app:layout_constraintTop_toBottomOf="@+id/scr" />
 
     <TextView
         android:id="@+id/counter"
@@ -85,19 +117,22 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintTop_toBottomOf="@id/score"
+        app:layout_constraintBottom_toTopOf="@+id/textView21"
+        app:layout_constraintDimensionRatio="H, 1:1.1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/b5"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toTopOf="@+id/b8"
@@ -109,7 +144,10 @@
             android:id="@+id/b6"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toTopOf="@+id/b9"
@@ -122,6 +160,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="4dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toTopOf="@+id/b6"
@@ -133,8 +173,10 @@
             android:id="@+id/b9"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="4dp"
             android:layout_marginBottom="8dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -148,6 +190,8 @@
             android:layout_height="0dp"
             android:layout_marginStart="4dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toTopOf="@+id/b4"
@@ -160,6 +204,8 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="9dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toTopOf="@+id/b5"
@@ -171,8 +217,10 @@
             android:id="@+id/b8"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="9dp"
             android:layout_marginBottom="8dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -185,8 +233,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -199,7 +249,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/greenLight"
             android:fontFamily="@font/aldrich"
             android:textSize="72dp"
             app:layout_constraintBottom_toTopOf="@+id/b7"

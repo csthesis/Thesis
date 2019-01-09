@@ -1,6 +1,9 @@
 package com.dementia.csthesis.thesis;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import java.util.Random;
 
 public class PipeConnect extends AppCompatActivity {
+    Dialog popup;
 
     MediaPlayer player;
 
@@ -35,8 +39,11 @@ public class PipeConnect extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.greenTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pipe_connect);
+
+        popup = new Dialog(this);
 
         pipeScore = findViewById(R.id.pipeScore);
 
@@ -669,7 +676,11 @@ public class PipeConnect extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                player.stop();
+                if(player != null){
+                    if(player.isPlaying()){
+                        player.stop();
+                    }
+                }
                 score = 5000;
                 Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
                 startIntent.putExtra("SCORE", score);
@@ -680,7 +691,46 @@ public class PipeConnect extends AppCompatActivity {
     }
 
 
+    public void pause(View view){
 
+        popup.setContentView(R.layout.activity_ingame_pause);
+        popup.show();
+
+        Button pauseClose = popup.findViewById(R.id.ingamePauseClose);
+        Button returnGame = popup.findViewById(R.id.ingameReturn);
+        Button main = popup.findViewById(R.id.ingameExit);
+
+        pauseClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+            }
+        });
+        returnGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popup.dismiss();
+
+            }
+        });
+        main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                startActivity(startIntent);
+
+
+            }
+        });
+
+        popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+    }
+
+    public void onBackPressed(){
+        pause(null);
+    }
 
 
 

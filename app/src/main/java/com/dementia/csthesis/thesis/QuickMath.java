@@ -32,6 +32,7 @@ public class QuickMath extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.greenTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quick_math);
         popup = new Dialog(this);

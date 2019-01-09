@@ -286,14 +286,14 @@ public class ColorPair extends AppCompatActivity {
     }
 
     public void hit(){
-        if(scoreValue != 1600){
-            scoreValue += 200;
+        if(scoreValue != 4000){
+            scoreValue += 500;
             String scorestring = new Integer(scoreValue).toString();
             score.setText(scorestring);
 
             //enableButtons
         }
-        if (scoreValue == 1600){
+        if (scoreValue == 4000){
             Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
             startIntent.putExtra("SCORE", scoreValue);
             startActivity(startIntent);

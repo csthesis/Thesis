@@ -26,13 +26,14 @@ public class SoundRecog extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.violetTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_recog);
         popup = new Dialog(this);
 
         Random rand = new Random();
 
-        x = rand.nextInt(8);
+        x = rand.nextInt(9);
 
 
         Button person = findViewById(R.id.choice1);
@@ -255,9 +256,7 @@ public class SoundRecog extends AppCompatActivity {
                     player = null;
                 }
                 break;
-                        }
-
-
+            }
     }
 
 

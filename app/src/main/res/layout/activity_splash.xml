@@ -28,7 +28,7 @@
         android:fontFamily="@font/aldrich"
         android:text="OLFU VAL, CCS 2019©"
         android:textAlignment="center"
-        android:textColor="@color/textPrimaryDark"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,7 +50,7 @@
         android:fontFamily="@font/aldrich"
         android:text=" Inocencio, Madriñan, Martinez, Umlas"
         android:textAlignment="center"
-        android:textColor="@color/textPrimaryDark"
+        android:textColor="@android:color/black"
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/cpyr"
         app:layout_constraintEnd_toEndOf="parent"

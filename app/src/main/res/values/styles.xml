@@ -6,6 +6,43 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@android:color/black</item>
+    </style>
+
+    <style name="redTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/bgRed</item>
+        <item name="colorPrimaryDark">@color/reddark</item>
+        <item name="colorAccent">@color/redAccent</item>
+    </style>
+
+    <style name="blueTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/bgBlue</item>
+        <item name="colorPrimaryDark">@color/bluedark</item>
+        <item name="colorAccent">@color/blueAccent</item>
+    </style>
+
+    <style name="yellowTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/bgYellow</item>
+        <item name="colorPrimaryDark">@color/yellowdark</item>
+        <item name="colorAccent">@color/yellowAccent</item>
+    </style>
+
+    <style name="greenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/bgGreen</item>
+        <item name="colorPrimaryDark">@color/greendark</item>
+        <item name="colorAccent">@color/greenAccent</item>
+    </style>
+
+    <style name="violetTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/bgViolet</item>
+        <item name="colorPrimaryDark">@color/violetdark</item>
+        <item name="colorAccent">@color/violetAccent</item>
+    </style>
+
+    <style name="orangeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/bgOrange</item>
+        <item name="colorPrimaryDark">@color/orangedark</item>
+        <item name="colorAccent">@color/orangeAccent</item>
     </style>
 
     <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">

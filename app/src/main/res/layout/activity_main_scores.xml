@@ -5,34 +5,71 @@
     android:layout_width="320dp"
     android:layout_height="450dp"
     android:layout_gravity="center_vertical|center_horizontal|center"
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/rounded"
+    android:backgroundTint="@color/bgViolet"
     android:padding="5dp"
     tools:context=".MainScores">
 
-    <TextView
-        android:id="@+id/ingameclearedLabel"
-        android:layout_width="143dp"
-        android:layout_height="40dp"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/constraintLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:fontFamily="@font/aldrich"
-        android:gravity="center"
-        android:text="@string/scores"
-        android:textAlignment="center"
-        android:textColor="@color/textWhite"
-        android:textSize="30sp"
+        android:background="@drawable/rounded"
+        android:backgroundTint="@color/violetLight"
+        android:hapticFeedbackEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/scoresClose"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        <Button
+            android:id="@+id/scoresClose"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/mainexit"
+            app:layout_constraintBottom_toBottomOf="@+id/ingameclearedLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ingameclearedLabel"
+            app:layout_constraintTop_toTopOf="@+id/ingameclearedLabel" />
+
+        <TextView
+            android:id="@+id/ingameclearedLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/aldrich"
+            android:gravity="center"
+            android:text="High Scores"
+            android:textAlignment="center"
+            android:textColor="@color/textBlack"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/close"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/rounded"
+        android:backgroundTint="@color/violetLight"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
+
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>

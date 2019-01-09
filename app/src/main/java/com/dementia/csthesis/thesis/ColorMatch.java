@@ -79,6 +79,7 @@ public class ColorMatch extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.yellowTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_match);
 
@@ -237,8 +238,6 @@ public class ColorMatch extends AppCompatActivity {
                 hit();
             }
         });
-
-
 
     }
 
@@ -498,9 +497,10 @@ public class ColorMatch extends AppCompatActivity {
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                finish();
                 Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(startIntent);
-                finish();
+
             }
         });
 
