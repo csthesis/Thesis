@@ -27,7 +27,7 @@ public class ColorPair extends AppCompatActivity {
     private TextView score;
     private int scoreValue = 0;
 
-    private int x;
+    private int x,f =0,k = 0;
 
     private Button btn1;
     private Button base;
@@ -44,6 +44,7 @@ public class ColorPair extends AppCompatActivity {
 
     private Integer[] shuffle;
     private  int xctr = 0;
+    private int bilang = 0;
 
     private boolean isDone = true;
 
@@ -286,14 +287,17 @@ public class ColorPair extends AppCompatActivity {
     }
 
     public void hit(){
-        if(scoreValue != 4000){
-            scoreValue += 500;
+        if(bilang != 8){
+            scoreValue += 1000;
+            finlscr();
+            k = 0;
+            bilang += 1;
             String scorestring = new Integer(scoreValue).toString();
             score.setText(scorestring);
 
             //enableButtons
         }
-        if (scoreValue == 4000){
+        if (bilang == 8){
             Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
             startIntent.putExtra("SCORE", scoreValue);
             startActivity(startIntent);
@@ -464,6 +468,13 @@ public class ColorPair extends AppCompatActivity {
 
     public void onBackPressed(){
         pause(null );
+    }
+    public void finlscr(){
+
+        f = k * 30;
+        scoreValue -= f;
+
+
     }
 
 }

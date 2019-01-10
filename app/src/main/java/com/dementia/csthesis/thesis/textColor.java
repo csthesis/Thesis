@@ -47,7 +47,6 @@ public class textColor extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.greenTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_color);
 

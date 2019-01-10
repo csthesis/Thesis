@@ -32,7 +32,6 @@ public class colorTap extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.blueTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_tap);
         popup = new Dialog(this);

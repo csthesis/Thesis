@@ -150,7 +150,7 @@ public class TransitionScreen extends AppCompatActivity {
                 Intent startIntent = new Intent();
 
                 switch (finalCtr){
-                    //Sound category ========================================
+                    //Sound category ===================================================================
                     case 0:
                         //change bound depending on the number of finished games
                         r = rand.nextInt(5);
@@ -177,10 +177,10 @@ public class TransitionScreen extends AppCompatActivity {
                         finish();
                         break;
 
-                    //Visual category ========================================
+                    //Visual category ===================================================================
                     case 1:
                         //change bound depending on the number of finished games
-                        r = rand.nextInt(2);
+                        r = rand.nextInt(5);
 
                         switch(r){
 
@@ -190,22 +190,53 @@ public class TransitionScreen extends AppCompatActivity {
                             case 1:
                                 startIntent = new Intent(getApplicationContext(), MatchThree.class);
                                 break;
+                            case 2:
+                                startIntent = new Intent(getApplicationContext(), ShapeMatch.class);
+                                break;
+                            case 3:
+                                startIntent = new Intent(getApplicationContext(), WordImageMatch.class);
+                                break;
+                            case 4:
+                                startIntent = new Intent(getApplicationContext(), ImageMatch.class);
+                                break;
+
                         }
                         startActivity(startIntent);
                         finish();
                         break;
 
-                    //Word category ========================================
+                    //Word category ===================================================================
                     case 2:
-                        startIntent = new Intent(getApplicationContext(), WordGuess.class);
+                        //change bound depending on the number of finished games
+                        r = rand.nextInt(5);
+
+                        switch(r){
+
+                            case 0:
+                                startIntent = new Intent(getApplicationContext(), WordGuess.class);
+                                break;
+                            case 1:
+                                startIntent = new Intent(getApplicationContext(), CompoundWords.class);
+                                break;
+                            case 2:
+                                startIntent = new Intent(getApplicationContext(), alphabetical.class);
+                                break;
+                            case 3:
+                                startIntent = new Intent(getApplicationContext(), ImageWord.class);
+                                break;
+                            case 4:
+                                startIntent = new Intent(getApplicationContext(), ImageWord.class);
+                                break;
+
+                        }
                         startActivity(startIntent);
                         finish();
                         break;
 
-                    //Logic category ========================================
+                    //Logic category ===================================================================
                     case 3:
                         //change bound depending on the number of finished games
-                        r = rand.nextInt(3);
+                        r = rand.nextInt(5);
 
                         switch(r){
 
@@ -218,23 +249,46 @@ public class TransitionScreen extends AppCompatActivity {
                             case 2:
                                 startIntent = new Intent(getApplicationContext(), Tictactoe.class);
                                 break;
+                            case 3:
+                                startIntent = new Intent(getApplicationContext(), numberImpact.class);
+                                break;
+                            case 4:
+                                startIntent = new Intent(getApplicationContext(), textColor.class);
+                                break;
                         }
                         startActivity(startIntent);
                         finish();
                         break;
 
-                    //Memory category ========================================
+                    //Memory category ===================================================================
                     case 4:
-                        startIntent = new Intent(getApplicationContext(), ColorPair.class);
+                        r = rand.nextInt(5);
+                        switch(r){
+
+                            case 0:
+                                startIntent = new Intent(getApplicationContext(), WordPair.class);
+                                break;
+                            case 1:
+                                startIntent = new Intent(getApplicationContext(), ImagePair.class);
+                                break;
+                            case 2:
+                                startIntent = new Intent(getApplicationContext(), NumberMemory.class);
+                                break;
+                            case 3:
+                                startIntent = new Intent(getApplicationContext(), ColorPair.class);
+                                break;
+                            case 4:
+                                startIntent = new Intent(getApplicationContext(), ColorOrder.class);
+                                break;
+                        }
                         startActivity(startIntent);
                         finish();
                         break;
 
-                    //Reflex category ========================================
+                    //Reflex category ===================================================================
                     case 5:
                         //change bound depending on the number of finished games
-//                        r = rand.nextInt(2);
-                        r = 0;
+                        r = rand.nextInt(5);
 
                         switch(r){
 
@@ -243,6 +297,15 @@ public class TransitionScreen extends AppCompatActivity {
                                 break;
                             case 1:
                                 startIntent = new Intent(getApplicationContext(), whackMole.class);
+                                break;
+                            case 2:
+                                startIntent = new Intent(getApplicationContext(), catchBall.class);
+                                break;
+                            case 3:
+                                startIntent = new Intent(getApplicationContext(), ShapeImpact.class);
+                                break;
+                            case 4:
+                                startIntent = new Intent(getApplicationContext(), colorTap.class);
                                 break;
                         }
                         startActivity(startIntent);

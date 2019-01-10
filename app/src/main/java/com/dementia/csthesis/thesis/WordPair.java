@@ -44,6 +44,7 @@ public class WordPair extends AppCompatActivity {
 
     private Integer[] shuffle;
     private  int xctr = 0;
+    private int bilang = 0;
 
     private boolean isDone = true;
 
@@ -51,7 +52,7 @@ public class WordPair extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_color_pair);
+        setContentView(R.layout.activity_word_pair);
         popup = new Dialog(this);
         TextView lb = findViewById(R.id.label);
         shuffle = new Integer[]{1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8};
@@ -60,7 +61,7 @@ public class WordPair extends AppCompatActivity {
         Collections.shuffle(list);
 
         randomColor();
-        score = findViewById(R.id.colorpairscore);
+        score = findViewById(R.id.colorpairscore2);
 
         a1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -289,16 +290,17 @@ public class WordPair extends AppCompatActivity {
     }
 
     public void hit(){
-        if(scoreValue != 8000){
+        if(bilang != 8){
             scoreValue += 1000;
             finlscr();
             k = 0;
+            bilang += 1;
             String scorestring = new Integer(scoreValue).toString();
             score.setText(scorestring);
 
             //enableButtons
         }
-        if (scoreValue == 8000){
+        if (bilang == 8){
             Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
             startIntent.putExtra("SCORE", scoreValue);
             startActivity(startIntent);

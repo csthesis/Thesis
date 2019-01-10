@@ -108,6 +108,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/pause"
             android:backgroundTint="@color/bgRed"
+            android:onClick="pause"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -185,7 +186,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginStart="125dp"
             android:layout_marginEnd="125dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="63dp"
             android:background="@color/bluedark" />
 
         <TextView
@@ -196,5 +197,17 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/redc"
             android:backgroundTint="@color/orangedark" />
+
+        <RelativeLayout
+            android:id="@+id/area"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignEnd="@+id/ball3"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="-194dp"
+            android:layout_marginBottom="0dp"
+            android:background="@color/blueLight">
+
+        </RelativeLayout>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

@@ -9,6 +9,49 @@
     tools:context=".PipeConnect">
 
     <TextView
+        android:id="@+id/life24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/aldrich"
+        android:text="Life"
+        android:textAlignment="center"
+        android:textColor="@color/textBlack"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+
+    <ImageView
+        android:id="@+id/life25"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="@+id/life24"
+        app:layout_constraintTop_toBottomOf="@+id/life24"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/life26"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/life25"
+        app:layout_constraintStart_toEndOf="@+id/life25"
+        app:layout_constraintTop_toTopOf="@+id/life25"
+        app:srcCompat="@drawable/heart" />
+
+    <ImageView
+        android:id="@+id/life27"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/life26"
+        app:layout_constraintStart_toEndOf="@+id/life26"
+        app:layout_constraintTop_toTopOf="@+id/life26"
+        app:srcCompat="@drawable/heart" />
+
+    <TextView
         android:id="@+id/textView15"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,6 +84,8 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/pause"
+            android:backgroundTint="@color/violetdark"
+            android:onClick="pause"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -77,10 +122,8 @@
 
     <TextView
         android:id="@+id/scorelabel3"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
@@ -89,21 +132,20 @@
         android:textColor="@color/textBlack"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4" />
+        app:layout_constraintTop_toTopOf="@+id/life24" />
 
     <TextView
         android:id="@+id/pipeScore"
-        android:layout_width="102dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/aldrich"
         android:gravity="center"
-        android:text="0000"
+        android:text="0"
         android:textAlignment="center"
         android:textColor="@color/textBlack"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="@+id/scorelabel3"
-        app:layout_constraintStart_toStartOf="@+id/scorelabel3"
         app:layout_constraintTop_toBottomOf="@+id/scorelabel3" />
 
 
@@ -111,17 +153,16 @@
         android:id="@+id/gridLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:background="@color/bgGreen"
         android:visibility="visible"
         app:alignmentMode="alignMargins"
         app:columnCount="4"
         app:layout_constraintBottom_toTopOf="@+id/textView15"
-        app:layout_constraintDimensionRatio="H, 1:1.1"
+        app:layout_constraintDimensionRatio="H, 1:1.05"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pipeScore"
+        app:layout_constraintTop_toBottomOf="@+id/life27"
+        app:layout_constraintVertical_bias="1.0"
         app:rowCount="4">
 
         <Button

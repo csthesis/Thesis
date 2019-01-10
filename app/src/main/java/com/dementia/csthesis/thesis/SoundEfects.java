@@ -32,7 +32,6 @@ public class SoundEfects extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.violetTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sound_efects);
         b[0] = findViewById(R.id.button);
@@ -183,9 +182,9 @@ public class SoundEfects extends AppCompatActivity {
 
         b[0].setText(hums[6]);
 
-        b[1].setText(hums[0]);
+        b[1].setText(hums[4]);
 
-        b[2].setText(hums[4]);
+        b[2].setText(hums[0]);
 
     }
 

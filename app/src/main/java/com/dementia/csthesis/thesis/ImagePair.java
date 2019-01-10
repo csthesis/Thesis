@@ -41,6 +41,7 @@ public class ImagePair extends AppCompatActivity {
 
     private int ctr = 0;
     private int sc;
+    private int bilang = 0;
 
     private Integer[] shuffle;
     private  int xctr = 0;
@@ -287,16 +288,17 @@ public class ImagePair extends AppCompatActivity {
     }
 
     public void hit(){
-        if(scoreValue != 8000){
+        if(bilang != 8){
             scoreValue += 1000;
             finlscr();
+            bilang += 1;
             k =0;
             String scorestring = new Integer(scoreValue).toString();
             score.setText(scorestring);
 
             //enableButtons
         }
-        if (scoreValue == 8000){
+        if (bilang == 8){
             Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
             startIntent.putExtra("SCORE", scoreValue);
             startActivity(startIntent);

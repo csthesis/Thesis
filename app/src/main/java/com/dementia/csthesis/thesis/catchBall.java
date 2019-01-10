@@ -64,7 +64,7 @@ public class catchBall extends AppCompatActivity {
         b3 = findViewById(R.id.ball3);
 
 
-        layout = findViewById(R.id.layout);
+        layout = findViewById(R.id.area);
         player = findViewById(R.id.player);
 
         //get screen edge
@@ -75,9 +75,10 @@ public class catchBall extends AppCompatActivity {
         screenHeight = size.y;
         screenWidth = size.x;
 
-        b1speed = (float) (screenHeight * 0.0025);
-        b2speed = (float) (screenHeight * 0.0028);
-        b3speed = (float) (screenHeight * 0.0023);
+        b3speed = (float) (screenHeight * 0.003);
+        b1speed = (float) (screenHeight * 0.006);
+        b2speed = (float) (screenHeight * 0.009);
+
 
         life1 = findViewById(R.id.life13);
         life2 = findViewById(R.id.life14);
@@ -88,8 +89,8 @@ public class catchBall extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
             x = event.getX();
             if(event.getAction() == MotionEvent.ACTION_MOVE){
-                if(x > 0 && x < (screenWidth - player.getWidth() )){
-                    player.setX(x);
+                if(x > 0){
+                    player.setX(x - (player.getWidth() / 2));
                 }
                 playerxL = player.getX();
                 playerxR = player.getX() + player.getWidth();
@@ -170,13 +171,16 @@ public class catchBall extends AppCompatActivity {
                 if(playerxL < b1mid && b1mid < playerxR){
                     resetBall(b1);
                     hit(b1x);
+                    ball1 = 0; //reset loop
                 }
-                if(b1yT > screenHeight){
-                    resetBall(b1);
+                if(b1yT > playerY + player.getHeight()){
                     deduc();
+                    resetBall(b1);
+                    ball1 = 0; //reset loop
                 }
-                ball1 = 0;
             }
+
+
             if(contb1){
 
                 //loop handler
@@ -208,14 +212,16 @@ public class catchBall extends AppCompatActivity {
                 if(playerxL < b2mid && b2mid < playerxR){
                     resetBall(b2);
                     hit(b2x);
+                    ball2 = 0;
                 }
-                if(b2yT > screenHeight){
-                    resetBall(b2);
+                if(b2yT > playerY + player.getHeight()){
                     deduc();
+                    resetBall(b2);
+                    ball2 = 0;
                 }
-                ball2 = 0;
+
             }
-            if(contb1){
+            if(contb2){
                 //loop handler
                 handler.postDelayed(b2cp, 1);
             }
@@ -245,12 +251,14 @@ public class catchBall extends AppCompatActivity {
                 if(playerxL < b3mid && b3mid < playerxR){
                     resetBall(b3);
                     hit(b3x);
+                    ball3 = 0;
                 }
-                if(b3yT > screenHeight){
-                    resetBall(b3);
+                if(b3yT > playerY + player.getHeight()){
                     deduc();
+                    resetBall(b3);
+                    ball3 = 0;
                 }
-                ball3 = 0;
+
             }
             if(contb3){
                 //loop handler
@@ -260,17 +268,27 @@ public class catchBall extends AppCompatActivity {
     };
 
     public void hit(int z){
+        bhit();
         switch(z){
             case 0:
-                score += 400;
+                score += 420;
                 break;
             case 1:
-                score += 600;
+                score += 660;
                 break;
             case 2:
                 score += 250;
                 break;
         }
+        if(score > 6000){
+            contb1 = false;
+            contb2 = false;
+            contb3 = false;
+            Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
+            startIntent.putExtra("SCORE", score);
+            startActivity(startIntent);
+        }
+
 
         String scr = new Integer(score).toString();
         scoretv.setText(scr);
@@ -292,6 +310,7 @@ public class catchBall extends AppCompatActivity {
 
     public void deduc(){
 
+        bmiss();
         //deduc life
         life -= 1;
 
@@ -304,8 +323,11 @@ public class catchBall extends AppCompatActivity {
                 break;
             case 0:
                 life1.setImageResource(R.drawable.blackheart);
+                contb1 = false;
+                contb2 = false;
+                contb3 = false;
 
-                if(score >= 2000){
+                if(score > 0){
                     Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
                     startIntent.putExtra("SCORE", score);
                     startActivity(startIntent);
@@ -318,7 +340,56 @@ public class catchBall extends AppCompatActivity {
         }
     }
 
+    public void bhit(){
+        ballhit = MediaPlayer.create(this, R.raw.playerhit);
+        if(!ballhit.isPlaying()){
+            ballhit.start();
+            ballhit.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    ballhit = null;
+                }
+            });
+        }
+        else if (ballhit.isPlaying()) {
+            ballhit.stop();
+            ballhit.start();
+            ballhit.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    ballhit = null;
+                }
+            });
+        }
+    }
+
+    public void bmiss(){
+        ballmiss = MediaPlayer.create(this, R.raw.miss);
+        if(!ballmiss.isPlaying()){
+            ballmiss.start();
+            ballmiss.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    ballmiss = null;
+                }
+            });
+        }
+        else if (ballmiss.isPlaying()) {
+            ballmiss.stop();
+            ballmiss.start();
+            ballmiss.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    ballmiss = null;
+                }
+            });
+        }
+    }
+
     public void pause(View view){
+        contb1 = false;
+        contb2 = false;
+        contb3 = false;
 
         popup.setContentView(R.layout.activity_ingame_pause);
         popup.show();
@@ -330,22 +401,27 @@ public class catchBall extends AppCompatActivity {
         pauseClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contb1 = true;
+                contb2 = true;
+                contb3 = true;
                 popup.dismiss();
-
-
             }
         });
         returnGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                contb1 = true;
+                contb2 = true;
+                contb3 = true;
                 popup.dismiss();
-
             }
         });
         main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                contb1 = false;
+                contb2 = false;
+                contb3 = false;
                 finish();
                 Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
                 startActivity(startIntent);

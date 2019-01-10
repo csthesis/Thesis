@@ -351,11 +351,41 @@ public class ShapeImpact extends AppCompatActivity {
     }
 
     public void check(int btnint, float x1, float x2){
+        //sound ====================================================
+        player = MediaPlayer.create(this, R.raw.miss);
+        if(!player.isPlaying()){
+            player.start();
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    player = null;
+                }
+            });
+        }
+        else if (player.isPlaying()) {
+            player.stop();
+            player.start();
+            player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    player = null;
+                }
+            });
+        }
+
+
+        //sound ====================================================
+
         if(btnint == projint){
             if(projmid > x1 && projmid < x2){
                 score += 450;
                 String x = new Integer(score).toString();
                 scoretv.setText(x);
+                if(score >= 5000){
+                    Intent startIntent = new Intent(getApplicationContext(), gameCleared.class);
+                    startIntent.putExtra("SCORE", score);
+                    startActivity(startIntent);
+                }
 
                 contprojl = false;
                 contprojr = false;

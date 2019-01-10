@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -34,16 +35,23 @@ public class PipeConnect extends AppCompatActivity {
 
     private TextView pipeScore;
 
+    private int life = 3;
+    private ImageView life1, life2, life3;
+
     private boolean hit0 = false, hit1 = false, hit2 = false, hit3 = false, hit4 = false, hit5 = false, hit6 = false,
             hit7 = false, hit8 = false, hit9 = false, hit10 = false, hit11 = false, hit12 = false, hit13 = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.greenTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pipe_connect);
 
         popup = new Dialog(this);
+
+        life1 = findViewById(R.id.life25);
+        life2 = findViewById(R.id.life26);
+        life3 = findViewById(R.id.life27);
+
 
         pipeScore = findViewById(R.id.pipeScore);
 
@@ -129,6 +137,8 @@ public class PipeConnect extends AppCompatActivity {
                 if(hit1 && hit2 && hit3 && hit4 && hit5 && hit6 && hit7 && hit8 && hit9 && hit10 && hit11 && hit12 && hit13){
                     gameCleared();
                 }
+                else
+                    deduc();
 
             }
         });
@@ -268,6 +278,46 @@ public class PipeConnect extends AppCompatActivity {
         return i;
     }
 
+    public void deduc(){
+        life -= 1;
+        switch (life){
+            case 2:
+                life3.setImageResource(R.drawable.blackheart);
+                break;
+
+            case 1:
+                life2.setImageResource(R.drawable.blackheart);
+                break;
+
+            case 0:
+                life1.setImageResource(R.drawable.blackheart);
+
+                popup.setContentView(R.layout.activity_game_over);
+                popup.show();
+                popup.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                TextView sg = popup.findViewById(R.id.finalScore);
+                String x = new Integer(score).toString();
+                sg.setText(x);
+
+                Button exit = popup.findViewById(R.id.mainMenu);
+
+                exit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent startIntent = new Intent(getApplicationContext(), MainMenu.class);
+                        startActivity(startIntent);
+                        finish();
+
+                    }
+                });
+
+
+
+                break;
+        }
+    }
+
+
     public void state1(){
 //        a2, b2, c1, c3, d1, d2, d3
 
@@ -290,6 +340,7 @@ public class PipeConnect extends AppCompatActivity {
         c4.setVisibility(View.GONE);
 
         c2.setBackgroundResource(R.drawable.pipex);
+        c2.setEnabled(false);
 
         a2ctr = pipeL(a2);
         ans[0] = a2ctr;
@@ -374,9 +425,6 @@ public class PipeConnect extends AppCompatActivity {
         d3ctr = pipeS(d3);
         ans[13] = d3ctr;
         d3n = 1;
-
-
-
     }
 
     public void state3(){
@@ -400,6 +448,7 @@ public class PipeConnect extends AppCompatActivity {
         c4.setVisibility(View.GONE);
 
         b2.setBackgroundResource(R.drawable.pipex);
+        b2.setEnabled(false);
 
 
         a2ctr = pipeL(a2);
@@ -450,6 +499,7 @@ public class PipeConnect extends AppCompatActivity {
         d2.setVisibility(View.GONE);
 
         c3.setBackgroundResource(R.drawable.pipex);
+        c3.setEnabled(false);
 
         a2ctr = pipeL(a2);
         ans[0] = a2ctr;

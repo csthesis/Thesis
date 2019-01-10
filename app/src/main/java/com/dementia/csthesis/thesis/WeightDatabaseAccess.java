@@ -75,10 +75,28 @@ public class WeightDatabaseAccess {
     public void insertWeight(String column, float weight){
         ContentValues cv = new ContentValues();
         cv.put(column, weight);
-
-
         db.update(TABLE_NAME, cv, TABLE_ID + "= 1", null);
+    }
 
 
+    public Float getgameweight(String column, String table){
+        Cursor res;
+
+        Float x = 0f;
+
+        res = db.rawQuery("SELECT "+column+" FROM "+table+" WHERE ID = 1", null);
+
+        if(res.moveToFirst()){
+            x = res.getFloat(0);
+        }
+        return x;
+
+    }
+
+
+    public void insertgameweight(String column, float weight, String table){
+        ContentValues cv = new ContentValues();
+        cv.put(column, weight);
+        db.update(table, cv, TABLE_ID + "= 1", null);
     }
 }

@@ -32,7 +32,6 @@ public class HumanSound extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.violetTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_human_sound);
         b[0] = findViewById(R.id.button);
@@ -159,11 +158,11 @@ public class HumanSound extends AppCompatActivity {
     public void kidl() {
 
 
-        b[0].setText(hums[0]);
+        b[2].setText(hums[0]);
         
         b[1].setText(hums[3]);
         
-        b[2].setText("baby laughing");
+        b[0].setText("baby laughing");
         
     }
 

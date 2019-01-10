@@ -32,7 +32,6 @@ public class AnimalSounds extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.violetTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animal_sounds);
 

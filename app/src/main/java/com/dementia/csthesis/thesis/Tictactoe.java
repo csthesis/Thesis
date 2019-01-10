@@ -26,7 +26,6 @@ public class Tictactoe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(R.style.greenTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tictactoe);
         popup = new Dialog(this);
